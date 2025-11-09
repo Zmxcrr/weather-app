@@ -3,6 +3,7 @@ import { CurrentWeather, Units } from '../../types/weather';
 
 import {useI18n} from "../../hooks/useI18n.ts";
 import {formatTime} from "../../utils/weatherUtils.ts";
+import { HumidityIcon, PressureIcon, SunsetIcon, SunriseIcon, UvIcon, WindIcon } from './icons';
 import {WeatherIcon} from "./icons/WeatherIcons.tsx";
 
 interface CurrentWeatherCardProps {
@@ -31,7 +32,7 @@ export const CurrentWeatherCard: React.FC<CurrentWeatherCardProps> = ({ weather,
 
                 <div className="grid-cols-1 mt-3">
                     <div className="flex items-center gap-4 mb-4">
-                        <img src="/icons/sunrise.svg" className="dark:invert w-[48px] h-[48px]" alt={t.sunrise}/>
+                        <SunriseIcon className="dark:invert w-[48px] h-[48px]"/>
                         <div>
                             <div className="text-sm opacity-70 mb-1">{t.sunrise}</div>
                             <div className="text-base font-semibold">
@@ -41,7 +42,7 @@ export const CurrentWeatherCard: React.FC<CurrentWeatherCardProps> = ({ weather,
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <img src="/icons/sunset.svg" className="dark:invert w-[48px] h-[48px]" alt={t.sunset}/>
+                        <SunsetIcon className="dark:invert w-[48px] h-[48px]"/>
                         <div>
                             <div className="text-sm opacity-70 mb-1">{t.sunset}</div>
                             <div className="text-base font-semibold">
@@ -61,28 +62,28 @@ export const CurrentWeatherCard: React.FC<CurrentWeatherCardProps> = ({ weather,
 
             <div className="grid grid-cols-2 grid-rows-2">
                 <div className="grid grid-cols-1 place-items-center">
-                    <img src="/icons/humidity.svg" className="dark:invert" alt={t.humidity}/>
+                    <HumidityIcon className="dark:invert w-[60px] h-[51px]"/>
                     <div>
                         <div className="font-semibold text-xl text-center">{weather.main.humidity}%</div>
                         <div className="font-medium text-base mb-1 text-center">{t.humidity}</div>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 place-items-center">
-                    <img src="/icons/wind.svg" className="dark:invert" alt={t.windSpeed}/>
+                    <WindIcon className="dark:invert w-[60px] h-[60px]" />
                     <div>
                         <div className="font-semibold text-xl text-center">{Math.round(weather.wind.speed)}{speedUnit === 'km/h' ? t.kmh : t.mph}</div>
                         <div className="font-medium text-base mb-1 text-center">{t.windSpeed}</div>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 place-items-center">
-                    <img src="/icons/pressure.svg" className="dark:invert" alt={t.pressure}/>
+                    <PressureIcon className="dark:invert w-[58px] h-[58px]"/>
                     <div>
                         <div className="font-semibold text-xl text-center">{weather.main.pressure}{t.hPa}</div>
                         <div className="font-medium text-base mb-1 text-center">{t.pressure}</div>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 place-items-center">
-                    <img src="/icons/uv.svg" className="dark:invert" alt={t.uv}/>
+                    <UvIcon className="dark:invert w-[58px] h-[58px]"/>
                     <div>
                         <div className="font-semibold text-xl text-center">{uvIndex}</div>
                         <div className="font-medium text-base mb-1 text-center">{t.uv}</div>
