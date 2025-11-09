@@ -9,7 +9,7 @@ lerna-debug.log*
 
 # Dependencies
 node_modules
-jspm_packages
+jspm_packagesg
 
 # Build output
 dist
